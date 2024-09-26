@@ -1,4 +1,4 @@
-import "./App.css";
+import "./assents/styles/styles.css";
 import React from "react";
 
 const carboidratos = [
