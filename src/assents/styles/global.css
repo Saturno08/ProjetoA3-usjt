@@ -1,17 +1,25 @@
 /* src/styles/global.css */
-body {
-  background-color: #f0f0f0;
-  font-family: Arial, sans-serif;
-  margin: 0; /* Remove margens padrão */
+
+body{
+  margin: 0;
+  
+}
+.App {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
 }
 
-/* .App {
-  height: 100vh;
+/* 
+.select-container {
+  position: absolute; 
+  top: 50%; 
+  left: 50%; 
+  transform: translate(-50%, -50%); 
+  width: 100%; 
   display: flex;
-  justify-content: center;
-  align-items: center;
-  background-color: #f0f0f0;
-} */
+  justify-content: center; 
+}
 
 .ingredientes {
   background-color: #ffffff;
@@ -21,8 +29,9 @@ body {
   display: flex;
   flex-direction: column;
   gap: 10px;
-  width: 550px;
-  height: 400px;
+  width: 650px;
+  height: 550px;
+  font-family: Arial, sans-serif;
 }
 
 .select-group {
@@ -33,21 +42,26 @@ body {
   justify-content: space-between;
 }
 
+.input-usuario{
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 30px;
+  justify-content: space-between; 
+}
+
+.input-usuario label{
+  width: 80px;
+  text-align: right;
+}
+
 .select-group label {
   width: 80px;
   text-align: right;
 }
 
 .select-group select {
-  width: 150px;
-}
-.select-objetivo {
-  display: flex;
-  align-items: center;
-  gap: 10px;
-  margin-bottom: 30px;
-  width: 500px;
-  justify-content: space-between;
+  width: 200px;
 }
 
 select {
@@ -58,7 +72,6 @@ select {
   background-color: #fff;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
   transition: all 0.3s ease;
-  width: 1200px;
 }
 
 select:focus {
@@ -94,9 +107,9 @@ option {
 
 #button:active {
   transform: translateY(0);
-}
+} */
 
-label {
+/* label {
   display: block;
   font-size: 15px;
   margin-bottom: 5px;
@@ -119,10 +132,10 @@ header {
  #img_logo_principal {
   max-width: 250px;
   margin-top: -65px; 
-  /* padding: 0px 100px; */
- }
+  /* padding: 0px 100px; 
+ }*/
 
-.lista {
+/* .lista {
   display: flex;
   list-style-type: none;
   padding: 0;
@@ -150,13 +163,114 @@ header {
 }
 
 #img_baner {
-  
+  display: flex; 
+  width: 100%; 
+  height: auto;
  }
 
  .banner { 
-  display: flex; /* Ativa o Flexbox */
-  justify-content: center; /* Centraliza horizontalmente */
-  align-items: center; /* Centraliza verticalmente */
-  padding-left: 20px; 
-  padding-right: 20px; 
- }
+  display: flex; 
+  justify-content: center;
+  text-align: center;
+  flex: 1; 
+  margin: 0; 
+  padding: 0; 
+ } */
+
+ /* .footer {
+  background-color: #f0f0f0; 
+  color: #333; 
+  padding: 50px 0;
+  text-align: center;
+  width: 100%;
+  position: relative;
+  
+}
+
+.footer-content {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.footer p {
+  margin: 0;
+  font-size: 16px;
+  font-family: Arial, sans-serif;
+}
+
+.footer-links {
+  list-style: none;
+  padding: 0;
+  margin: -20px 0 0; /* Margem negativa para subir os links */
+  /* display: flex;
+  justify-content: center;
+  gap: 20px;
+} */
+
+/* .footer-links li {
+  display: inline;
+}
+
+.footer-links a {
+  color: #333;
+  text-decoration: none;
+  font-size: 14px;
+  font-family: Arial, sans-serif;
+}
+
+.footer-links a:hover {
+  text-decoration: underline;
+} */
+
+/* .social-icons {
+  margin-top: 15px; 
+}
+
+.social-icons a {
+  color: #333; 
+  font-size: 20px; 
+  margin: 0 10px; 
+  text-decoration: none; 
+}
+
+.social-icons a:hover {
+  color: #007bff; 
+} */
+
+/* .footer-content p {
+  margin: 10px 0; 
+  font-size: 12px; 
+  font-family: Arial, sans-serif; 
+}
+  */
+
+
+/* input {
+  width: 150px; 
+  padding: 10px 15px; 
+  font-size: 16px; 
+  border: 1px solid #ccc; 
+  border-radius: 8px; 
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); 
+  outline: none; 
+  transition: border-color 0.3s, box-shadow 0.3s; 
+}
+
+
+input:focus {
+  border-color: #007BFF; 
+  box-shadow: 0 4px 8px rgba(0, 123, 255, 0.2); 
+}
+
+input:hover {
+  border-color: #888; 
+}
+
+
+.select-objeto{
+  margin-bottom: 50px;
+}
+
+.select-objeto select{
+  width: 200px;
+} */

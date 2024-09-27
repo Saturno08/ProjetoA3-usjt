@@ -1,0 +1,128 @@
+
+.select-container {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+
+.ingredientes {
+  background-color: #ffffff;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  width: 650px;
+  height: 550px;
+  font-family: Arial, sans-serif;
+}
+
+.select-group {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 30px;
+  justify-content: space-between;
+}
+
+.input-usuario {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 30px;
+  justify-content: space-between;
+}
+
+.input-usuario label {
+  width: 80px;
+  text-align: right;
+}
+
+.select-group label {
+  width: 80px;
+  text-align: right;
+}
+
+.select-group select {
+  width: 150px;
+}
+
+select {
+  padding: 12px;
+  font-size: 16px;
+  border-radius: 8px;
+  border: 1px solid #ccc;
+  background-color: #fff;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  transition: all 0.3s ease;
+}
+
+select:focus {
+  border-color: #4caf50;
+  outline: none;
+}
+
+select:hover {
+  border-color: #ffffffd8;
+}
+
+option {
+  padding: 10px;
+}
+
+#button {
+  padding: 12px 24px;
+  font-size: 18px;
+  border: none;
+  border-radius: 8px;
+  background-color: #4caf50;
+  color: white;
+  cursor: pointer;
+  transition: background-color 0.3s, transform 0.3s;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  min-width: 150px;
+  text-align: center;
+}
+
+#button:hover {
+  transform: translateY(-2px);
+}
+
+#button:active {
+  transform: translateY(0);
+}
+
+input {
+    width: 120px; 
+    padding: 10px 15px; 
+    font-size: 16px; 
+    border: 1px solid #ccc; 
+    border-radius: 8px; 
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); 
+    outline: none; 
+    transition: border-color 0.3s, box-shadow 0.3s; 
+  }
+  
+  
+  input:focus {
+    border-color: #007BFF; 
+    box-shadow: 0 4px 8px rgba(0, 123, 255, 0.2); 
+  }
+  
+  input:hover {
+    border-color: #888; 
+  }
+  
+  
+  .select-objetivo{
+    margin-bottom: 50px;
+  }
+  
+  .select-objetivo select{
+    width: 200px;
+  }
