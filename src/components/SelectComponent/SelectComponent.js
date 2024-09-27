@@ -1,4 +1,4 @@
-import "../../assents/styles/styles.css";
+import "../../assents/styles/global.css";
 import React from 'react';
 import { carboidratos, proteinas, legumes, peso } from '../../arrays/arrays';
 

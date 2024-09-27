@@ -1,18 +1,17 @@
 /* src/styles/global.css */
 body {
-  background-color: #f0f0f0; /* Exemplo de cor clara */
-  margin: 0;
-  padding: 0;
+  background-color: #f0f0f0;
   font-family: Arial, sans-serif;
+  margin: 0; /* Remove margens padrão */
 }
 
-.App {
+/* .App {
   height: 100vh;
   display: flex;
   justify-content: center;
   align-items: center;
   background-color: #f0f0f0;
-}
+} */
 
 .ingredientes {
   background-color: #ffffff;
@@ -59,7 +58,7 @@ select {
   background-color: #fff;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
   transition: all 0.3s ease;
-  width: 100%;
+  width: 1200px;
 }
 
 select:focus {
@@ -103,3 +102,61 @@ label {
   margin-bottom: 5px;
   font-weight: bold;
 }
+
+header {
+  display: flex;
+  justify-content: center; 
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  background-color:#32CD32; 
+  z-index: 1000;
+  height: 80px;
+  padding: 5px 40px;
+}
+
+ #img_logo_principal {
+  max-width: 250px;
+  margin-top: -65px; 
+  /* padding: 0px 100px; */
+ }
+
+.lista {
+  display: flex;
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+  align-items: center;
+}
+
+.lista li {
+  margin: 0 15px;
+}
+
+.lista li a {
+  text-decoration: none; 
+  color: white; 
+  padding: 15px 55px; 
+  border-radius: 5px; 
+  transition: background-color 0.3s; 
+  font-size: 16px;
+  font-family:system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif
+}
+
+.lista li a:hover {
+  background-color: #ffffff;
+  color: #000000; 
+}
+
+#img_baner {
+  
+ }
+
+ .banner { 
+  display: flex; /* Ativa o Flexbox */
+  justify-content: center; /* Centraliza horizontalmente */
+  align-items: center; /* Centraliza verticalmente */
+  padding-left: 20px; 
+  padding-right: 20px; 
+ }
