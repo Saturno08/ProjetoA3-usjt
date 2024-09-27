@@ -1,10 +1,14 @@
 import "../../assents/styles/ingredientes.css";
+import "../../assents/styles/global.css";
 import React from "react";
 import { carboidratos, proteinas, legumes, peso ,objetivo} from "../../arrays/arrays.js";
 
 function Home() {
   return (
     <div className="ingredientes">
+        <div className="titulo">
+          <label htmlFor="lb_faca_calculo">Faça o cálculo nutricional da sua refeição</label>
+        </div>
       <div className="select-group">
         <label htmlFor="sl_carboidratos">Carboidratos:</label>
         <select id="sl_carboidratos">
@@ -46,7 +50,7 @@ function Home() {
       </div>
 
       <div className="select-group">
-        <label htmlFor="sl_legumes">Legumes:</label>
+        <label htmlFor="sl_legumes">Gorduras:</label>
         <select id="sl_legumes">
           {legumes.map((item, index) => (
             <option key={index} value={item}>
