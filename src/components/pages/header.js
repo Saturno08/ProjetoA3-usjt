@@ -1,9 +1,6 @@
 import "../../assents/styles/header.css";
 import React from 'react';
 import LogoPrincipal from '../../assents/imagens/logo_principal.png'
-import Banner from '../../assents/imagens/plano_fundo.jpeg'
-import Home from '../../components/pages/home.js'
-
 
 function Header() {
     return (
@@ -20,12 +17,7 @@ function Header() {
           </ul>
         </header>
   
-        <div className="banner">
-          <img id="img_baner" src={Banner} alt="Banner Principal" />
-          <div className="select-container">
-            <Home />
-          </div>
-        </div>
+        
       </>
     );
   }

@@ -1,16 +1,19 @@
 import "./assents/styles/global.css";
-import React from 'react';
-import Footer from './components/pages/footer.js'
-import Header from './components/pages/header.js'
-
-
+import React from "react";
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import Home from "./components/pages/home.js";
+import Teste from "./components/teste.js";
 
 function App() {
   return (
-    <div className="App">
-      <Header/>
-      <Footer/>
-    </div>
+    <Router>
+      <div className="App">
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="/test" element={<Teste  />} />
+        </Routes>
+      </div>
+    </Router>
   );
 }
 

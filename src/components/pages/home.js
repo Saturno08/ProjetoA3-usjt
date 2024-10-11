@@ -1,11 +1,29 @@
 import "../../assents/styles/ingredientes.css";
 import "../../assents/styles/global.css";
-import React from "react";
+import React, { useState } from "react";
 import { carboidratos, proteinas, legumes, peso ,objetivo} from "../../arrays/arrays.js";
+import Banner from '../../assents/imagens/plano_fundo.jpeg'
+import { useNavigate } from "react-router-dom";
+import Header from "./header.js";
+import Footer from "./footer.js";
 
 function Home() {
+  const navigate = useNavigate()
+
+  // let [weight, setWeight] = useState('');
+  // value={weight} onChange={(event) => setWeight(event.target.value)}
+
+  function goToTeste() {
+    navigate('/test')
+  }
+
   return (
-    <div className="ingredientes">
+    <>
+    <Header/>
+    <div className="banner">
+      <img id="img_baner" src={Banner} alt="Banner Principal" />
+      <div className="select-container">
+      <div className="ingredientes">
         <div className="titulo">
           <label htmlFor="lb_faca_calculo">Faça o cálculo nutricional da sua refeição</label>
         </div>
@@ -85,8 +103,12 @@ function Home() {
         </select>
       </div>
 
-      <button id="button">Clique Aqui</button>
+      <button id="button" onClick={goToTeste}>Clique Aqui</button>
     </div>
+      </div>
+    </div>
+  <Footer/>
+    </>
   );
 }
 
