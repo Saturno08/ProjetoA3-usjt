@@ -14,7 +14,7 @@ function Home() {
   // value={weight} onChange={(event) => setWeight(event.target.value)}
 
   function goToTeste() {
-    navigate('/test')
+    navigate('/response')
   }
 
   return (

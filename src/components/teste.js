@@ -1,15 +1,19 @@
 
 import React from 'react';
-import Header from './pages/header';
+import LogoPrincipal from '../assents/imagens/logo_principal.png'
+import '../assents/styles/resposta.css'
 
-
-function Teste() {
+function Resposta() {
   return (
-    <div>
-      <Header/>
-        <h1>Teste</h1>
+    <div className="resposta">
+      <header className = 'header-resposta'>
+        <div>
+          <img id="img_logo_principal" src={LogoPrincipal} alt="Logo Principal" />
+        </div>
+      </header>
     </div>
   );
 }
 
-export default Teste;
+
+export default Resposta;
