@@ -1,0 +1,27 @@
+#img_logo_principal {
+    max-width: 250px;
+    margin-top: -65px; 
+   }
+   .lista_resposta {
+    display: flex;
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+    align-items: center;
+  }
+  
+  .lista_resposta li a {
+    text-decoration: none; 
+    color: white; 
+    padding: 15px 55px; 
+    border-radius: 5px; 
+    transition: background-color 0.3s; 
+    font-size: 16px;
+    font-family:system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif
+  }
+  
+  .lista_resposta li a:hover {
+    background-color: #ffffff;
+    color: #000000; 
+  }
+  
