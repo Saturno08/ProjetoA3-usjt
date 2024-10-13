@@ -2,7 +2,7 @@ import "./assents/styles/global.css";
 import React from "react";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import Home from "./components/pages/home.js";
-import Teste from "./components/teste.js";
+import Resposta from "./components/resposta.js";
 
 function App() {
   return (
@@ -10,7 +10,7 @@ function App() {
       <div className="App">
         <Routes>
           <Route path="/" element={<Home />} />
-          <Route path="/response" element={<Teste  />} />
+          <Route path="/response" element={<Resposta  />} />
         </Routes>
       </div>
     </Router>
