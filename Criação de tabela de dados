@@ -1,0 +1,28 @@
+/*O código já se encontra com a base de dados na nuvem (aiven.io como indicado), login e senha
+/*Criação do database*/
+CREATE DATABASE db_desweb;
+
+*CREATE da tabela dentro do database que foi criado anteriormente, para fins de armazenar todas as consultas feitas*/
+CREATE TABLE db_desweb.dados_coresync (
+    id SERIAL PRIMARY KEY,
+    peso BIGINT,
+    altura BIGINT,
+    objetivo VARCHAR(20),
+    carboidratos VARCHAR(20),
+    carboidratos_qtd VARCHAR(20),
+    proteinas VARCHAR(20),
+    proteinas_qtd VARCHAR(20),
+    legumes VARCHAR(20),
+    legumes_qtd VARCHAR(20),
+    resposta_gpt TEXT,
+    data_recbida TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+);
+
+/*Valores como exemplo que foram inseridos na tabela, com objetivo de usar como teste*/
+INSERT INTO db_desweb.dados_coresync
+    (peso, altura, objetivo, carboidratos, carboidratos_qtd, proteinas, proteinas_qtd, legumes, legumes_qtd, resposta_gpt)
+VALUES (85, 185, 'Emagrecer', 'Arroz', 150, 'Carne', 150, 'Alface', 150, 'UAOUEDHAUOHDUOAH')
+;
+
+/*SELECT para testar a tabela*/
+SELECT * FROM db_desweb.dados_coresync;
