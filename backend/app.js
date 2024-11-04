@@ -1,11 +1,13 @@
 const express = require('express');
-const helloWorldRoute = require('./routes/index');
 const app = express();
-const PORT = 3000;
+const routes = require('./routes/index');
 
-// Usando a rota helloWorld
-app.use('/hello-world', helloWorldRoute);
 
+app.use(express.json()); 
+app.use('/api', routes); 
+
+
+const PORT = process.env.PORT || 3001;
 app.listen(PORT, () => {
-    console.log(`Servidor rodando na porta ${PORT}`);
+    console.log(`servidor rodando na porta ${PORT}`);
 });
