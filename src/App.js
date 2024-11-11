@@ -15,7 +15,6 @@ function App() {
           <Route path="/" element={<Home />} />
           <Route path="/response" element={<Teste />} />
         </Routes>
-        <Footer />
       </div>
     </Router>
   );

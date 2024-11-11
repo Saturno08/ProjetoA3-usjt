@@ -3,7 +3,7 @@ import React from 'react';
 import LogoPrincipal from '../assents/imagens/logo_principal.png'
 import '../assents/styles/resposta.css'
 
-function Resposta() {
+function Teste() {
   return (
     <div className="resposta">
       <header className = 'header-resposta'>
@@ -16,4 +16,4 @@ function Resposta() {
 }
 
 
-export default Resposta;
+export default Teste;
