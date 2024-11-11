@@ -66,7 +66,7 @@ function Home() {
             </div>
 
             <div className="select-group">
-              <label htmlFor="sl_legumes">Gorduras:</label>
+              <label htmlFor="sl_legumes">Legumes:</label>
               <select id="sl_legumes">
                 {legumes.map((item, index) => (
                   <option key={index} value={item}>
@@ -107,7 +107,6 @@ function Home() {
           </div>
         </div>
       </div>
-      <Footer />
     </>
   );
 }
