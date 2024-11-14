@@ -32,9 +32,28 @@ function Home() {
     console.log(value)
    }
  
- function goToTeste() {
-  localStorage.setItem("dados",JSON.stringify(formData))
-    navigate('/response');
+   async function goToTeste() { 
+      try {
+        const response = await fetch('http://localhost:5000/api/calculo-nutricional', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify(formData),
+        });
+  
+        if (response.ok) { 
+          const data = await response.json();
+          console.log('Resposta do servidor:', data);
+  
+          localStorage.setItem('dados', JSON.stringify(data));
+          navigate('/response'); 
+        } else {
+          console.error('Erro ao enviar dados:', response.statusText);
+        }
+      } catch (error) {
+        console.error('Erro ao enviar dados:', error);
+      }
   }
 
   return (
