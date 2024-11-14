@@ -32,7 +32,7 @@ function Home() {
     console.log(value)
    }
  
-   async function goToTeste() { 
+   async function getApiGemani() { 
       try {
         const response = await fetch('http://localhost:5000/api/calculo-nutricional', {
           method: 'POST',
@@ -144,7 +144,7 @@ function Home() {
               </select>
             </div>
 
-            <button id="button" onClick={goToTeste}>Clique Aqui</button>
+            <button id="button" onClick={getApiGemani}>Clique Aqui</button>
           </div>
         </div>
       </div>
