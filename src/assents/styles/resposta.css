@@ -1,3 +1,7 @@
+.bodyClass{
+  padding: 100px 20px ;
+}
+
 #img_logo_principal {
     max-width: 250px;
     margin-top: -65px; 

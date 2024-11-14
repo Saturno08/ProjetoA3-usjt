@@ -85,10 +85,10 @@ function generateRecommendations(objetivo) {
 router.post('/calculo-nutricional', async (req, res) => {
   console.log('Dados recebidos:', req.body);  
 
-  const { peso, altura, idade, sexo, objetivo, atividade_fisica, proteinas, carboidratos, gorduras } = req.body;
+  const { peso, altura, objetivo, proteinas, carboidratos, legumes } = req.body;
 
  
-  if (!peso || !altura || !idade || !sexo || !objetivo || !atividade_fisica || !proteinas || !carboidratos || !gorduras) {
+  if (!peso || !altura  || !objetivo  || !proteinas || !carboidratos || !legumes) {
     return res.status(400).json({ error: 'Todos os dados são obrigatórios' });
   }
 
@@ -103,13 +103,10 @@ router.post('/calculo-nutricional', async (req, res) => {
     const dadosNutricionais = {
       peso,
       altura,
-      idade,
-      sexo,
       objetivo,
-      atividade_fisica,
       proteinas,
       carboidratos,
-      gorduras
+      legumes
     };
 
    
@@ -142,7 +139,7 @@ router.post('/calculo-nutricional', async (req, res) => {
         return res.json({
           calorias_recomendadas: caloriasRecomendadas,
           macronutrientes: macronutrientes,
-          recomendações: recommendations
+          recomendacoes: recommendations
         });
       } else {
         return res.status(500).json({ error: 'Não foi possível extrair dados nutricionais completos, valores aproximados podem ser fornecidos.' });
