@@ -1,4 +1,4 @@
-const mysql = require('mysql2');  
+const mysql = require('mysql2');
 require('dotenv').config();
 
 const connection = mysql.createConnection({
@@ -7,8 +7,9 @@ const connection = mysql.createConnection({
     password: process.env.DB_PASSWORD,
     database: process.env.DB_NAME,
     port: process.env.DB_PORT || 3306,
-    connectTimeout: 10000
+    connectTimeout: 30000
 });
+
 
 const connectDB = () => {
     connection.connect((err) => {
@@ -20,4 +21,5 @@ const connectDB = () => {
     });
 };
 
-module.exports = connectDB;  
+
+module.exports = { connection, connectDB };
