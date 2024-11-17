@@ -30,7 +30,7 @@ export default function Resposta() {
         <table className="custom-table">
           <thead>
             <tr>
-              <th id="label-info">Informação</th>
+              <th id="label-info">Resumo Nutricional</th>
             </tr>
           </thead>
           <tbody>
