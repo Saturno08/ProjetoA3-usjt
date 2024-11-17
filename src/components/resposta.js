@@ -4,16 +4,10 @@ import "../assents/styles/resposta.css";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 
 export default function Resposta() {
-
   const [formData, setFormData] = useState({
-    calorias_recomendadas: "0",
-    macronutrientes: {},
-    recomendacoes: {
-        dieta: [],
-        treinamento: [],
-        outros: []
-    }
-});
+    text: [],
+    recomendacoes: [],
+  });
 
   useEffect(() => {
     const dados = localStorage.getItem("dados");
@@ -32,7 +26,23 @@ export default function Resposta() {
         </div>
       </header>
       <div className="bodyClass">
-        <p>Teste {formData.calorias_recomendadas}</p>
+        {/* Segunda tabela com a mesma estrutura, mas sem duplicação de código */}
+        <table className="custom-table">
+          <thead>
+            <tr>
+              <th>Número</th>
+              <th>Recomendação</th>
+            </tr>
+          </thead>
+          <tbody>
+            {formData.text.map((recomendacao) => (
+              <tr key={recomendacao.numero}>
+                <td>{recomendacao.numero}</td>
+                <td>{recomendacao.texto}</td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
       </div>
     </div>
   );

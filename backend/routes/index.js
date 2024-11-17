@@ -85,7 +85,7 @@ function generateRecommendations(objetivo) {
 router.post('/calculo-nutricional', async (req, res) => {
   console.log('Dados recebidos:', req.body);  
 
-  const { peso, altura, objetivo, proteinas, carboidratos, legumes } = req.body;
+  const { peso, altura, objetivo, proteinas, carboidratos, legumes,quantidadeCabroidatos,quantidadeProteinas,quantidadeLegumes } = req.body;
 
  
   if (!peso || !altura  || !objetivo  || !proteinas || !carboidratos || !legumes) {
@@ -106,7 +106,10 @@ router.post('/calculo-nutricional', async (req, res) => {
       objetivo,
       proteinas,
       carboidratos,
-      legumes
+      legumes,
+      quantidadeCabroidatos,
+      quantidadeProteinas,
+      quantidadeLegumes
     };
 
    
@@ -125,21 +128,26 @@ router.post('/calculo-nutricional', async (req, res) => {
     if (geminiData.candidates && geminiData.candidates.length > 0) {
       const analysisText = geminiData.candidates[0].content.parts[0].text;
 
-      console.log('Texto da análise:', analysisText); 
+  
+      const linhas = analysisText.split('\n');
 
+      const recomendacoes = linhas.filter(linha => /^\d+\.\s/.test(linha));
       
-      const caloriasRecomendadas = extractCalories(analysisText);
-      const macronutrientes = extractMacronutrients(analysisText);
-      const recommendations = generateRecommendations(objetivo);
+      const textoRecomendado = linhas.map(text => {
+        const textoLimpo = text.replace(/^\d+\.\s/, '');
+      
+        if (textoLimpo.trim() !== '' || textoLimpo.trim() != null || textoLimpo.trim() != undefined ) {
+          return {
+            texto: textoLimpo
+          };
+        }
+      });
+  
 
-      console.log('Calorias recomendadas:', caloriasRecomendadas);
-      console.log('Macronutrientes:', macronutrientes);
-
-      if (caloriasRecomendadas && macronutrientes) {
+      if (analysisText) {
         return res.json({
-          calorias_recomendadas: caloriasRecomendadas,
-          macronutrientes: macronutrientes,
-          recomendacoes: recommendations
+         text: textoRecomendado,
+        recomendacoes: recomendacoes
         });
       } else {
         return res.status(500).json({ error: 'Não foi possível extrair dados nutricionais completos, valores aproximados podem ser fornecidos.' });

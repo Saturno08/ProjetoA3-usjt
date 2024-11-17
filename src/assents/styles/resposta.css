@@ -29,3 +29,40 @@
     color: #000000; 
   }
   
+  table {
+    font-family: 'Roboto', sans-serif;
+    border-collapse: collapse;
+    width: 70%;
+  }
+  
+  th, td {
+    border: 1px solid #ddd;
+    padding: 8px;
+    text-align: center;
+  }
+  
+  th {
+    font-weight: bold;
+    background-color: #f2f2f2;
+  }
+
+  .bodyClass {
+    display: flex;
+  justify-content: center; 
+  align-items: center; 
+  height: 100vh;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  }
+
+  .custom-table td {
+    padding: 20px; 
+  }
+  
+  .custom-table  {
+    margin-bottom: 80px;
+  }
+  
+
+
