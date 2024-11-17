@@ -30,14 +30,12 @@ export default function Resposta() {
         <table className="custom-table">
           <thead>
             <tr>
-              <th>Número</th>
-              <th>Recomendação</th>
+              <th id="label-info">Informação</th>
             </tr>
           </thead>
           <tbody>
             {formData.text.map((recomendacao) => (
               <tr key={recomendacao.numero}>
-                <td>{recomendacao.numero}</td>
                 <td>{recomendacao.texto}</td>
               </tr>
             ))}
