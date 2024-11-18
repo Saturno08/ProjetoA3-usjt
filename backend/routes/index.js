@@ -56,23 +56,63 @@ router.get('/consultar', async (req, res) => {
 router.post('/calcular', async (req, res) => {
     const { contents } = req.body;
 
-    
-    if (!contents || !Array.isArray(contents) || contents.length === 0) {
-        return res.status(400).json({ message: 'Conteúdo inválido ou não fornecido.' });
-    }
 
+function generateRecommendations(objetivo) {
+  let recommendations = {
+    dieta: [],
+    treinamento: [],
+    outros: []
+  };
+
+  if (objetivo === 'Ganho de massa') {
+    recommendations.dieta.push('Aumentar o consumo calórico para promover o ganho de massa muscular.');
+    recommendations.dieta.push('Consumir cerca de 1,6-2,2 gramas de proteína por quilo de peso corporal por dia.');
+    recommendations.dieta.push('Priorizar carboidratos complexos como arroz integral, batata doce e pão integral.');
+    recommendations.dieta.push('Consumir gorduras saudáveis como azeite de oliva, abacate e oleaginosas.');
+
+    recommendations.treinamento.push('Priorizar exercícios compostos como agachamento, supino e levantamento terra.');
+    recommendations.treinamento.push('Treinar com pesos desafiadores e número de repetições que possibilitem alcançar a fadiga muscular.');
+    recommendations.treinamento.push('Treinar 3-4 vezes por semana, com pelo menos um dia de descanso entre as sessões.');
+
+    recommendations.outros.push('Dormir pelo menos 7-8 horas por noite para permitir a recuperação muscular.');
+    recommendations.outros.push('Beber bastante água ao longo do dia, especialmente após os treinos.');
+    recommendations.outros.push('A suplementação de proteínas, como whey protein, pode ser útil, mas não essencial para todos.');
+  }
+
+  
+
+  return recommendations;
+}
+
+
+router.post('/calculo-nutricional', async (req, res) => {
+  console.log('Dados recebidos:', req.body);  
+
+  const { peso, altura, objetivo, proteinas, carboidratos, legumes,quantidadeCabroidatos,quantidadeProteinas,quantidadeLegumes } = req.body;
+
+ 
+  if (!peso || !altura  || !objetivo  || !proteinas || !carboidratos || !legumes) {
+    return res.status(400).json({ error: 'Todos os dados são obrigatórios' });
+  }
+
+  const { GEMINI_API_KEY: apiKey, GEMINI_API_URL: endpointGemini } = process.env;
+
+  if (!apiKey || !endpointGemini) {
+    return res.status(500).json({ error: 'Chave de API Gemini ou endpoint não configurado' });
+  }
+
+  try {
     
-    const dados = {
-        contents: contents.map(content => {
-            if (!content.parts || !Array.isArray(content.parts)) {
-                return res.status(400).json({ message: 'Formato de partes inválido.' });
-            }
-            return {
-                parts: content.parts.map(part => ({
-                    text: part.text || ""  
-                }))
-            };
-        })
+    const dadosNutricionais = {
+      peso,
+      altura,
+      objetivo,
+      proteinas,
+      carboidratos,
+      legumes,
+      quantidadeCabroidatos,
+      quantidadeProteinas,
+      quantidadeLegumes
     };
 
     try {
@@ -91,31 +131,32 @@ router.post('/calcular', async (req, res) => {
         const timestamp = new Date();
         const endpoint = '/calcular'; 
 
-        
-        connection.query(
-            'INSERT INTO dados_coresync (endpoint, data_recbida, resposta) VALUES (?, ?, ?)', 
-            [
-                endpoint, 
-                timestamp.toISOString().slice(0, 19).replace('T', ' '),  
-                textoLimpo  
-            ],
-            (err, results) => {
-                if (err) {
-                    console.error('Erro ao salvar a resposta no banco de dados:', err);
-                    return res.status(500).json({ message: 'Erro ao salvar a resposta no banco de dados.' });
-                }
+  
+      const linhas = analysisText.split('\n');
 
-                
-                return res.json({
-                    message: 'Cálculo realizado com sucesso!',
-                    textoNutricional: textoLimpo, 
-                    bancoResultados: results 
-                });
-            }
-        );
-    } catch (error) {
-        console.error('Erro ao calcular os dados nutricionais:', error);
-        return res.status(500).json({ message: 'Erro ao calcular os dados nutricionais.' });
+      const recomendacoes = linhas.filter(linha => /^\d+\.\s/.test(linha));
+      
+      const textoRecomendado = linhas.map(text => {
+        const textoLimpo = text.replace(/^\d+\.\s/, '');
+      
+        if (textoLimpo.trim() !== '' || textoLimpo.trim() != null || textoLimpo.trim() != undefined ) {
+          return {
+            texto: textoLimpo
+          };
+        }
+      });
+  
+
+      if (analysisText) {
+        return res.json({
+         text: textoRecomendado,
+        recomendacoes: recomendacoes
+        });
+      } else {
+        return res.status(500).json({ error: 'Não foi possível extrair dados nutricionais completos, valores aproximados podem ser fornecidos.' });
+      }
+    } else {
+      return res.status(500).json({ error: 'Resposta incompleta da API Gemini' });
     }
 });
 
